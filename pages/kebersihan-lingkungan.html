@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sasa Information Center</title>
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+        <!-- Styles -->
+        <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- AOS -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+        <!-- Custom Styles -->
+        <style>
+            :root {
+                --primary-red: #d22b2b; /* Merah yang lebih cerah */
+                --dark-red: #a41e22;
+                --white: #ffffff;
+                --off-white: #f8f9fa;
+                --dark-gray: #212529;
+                --light-gray: #6c757d;
+                --green: #15b788;
+                --dark-green: #0e8a67;
+                --gold: #ffd700;
+                --blue: #1395ba;
+                --dark-blue: #0d6a84;
+            }
+            body {
+                font-family: 'Albert Sans', sans-serif;
+                background-color: var(--off-white);
+            }
+            .page-header {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://www.tanjungpinangkota.go.id/images/berita/big/IMG-20240512-WA0005.jpg') no-repeat center center;
+                background-size: cover;
+                background-position: center center;
+                padding: 6rem 0;
+                color: var(--white);
+                text-align: center;
+            }
+            .page-header h1 {
+                font-weight: 800;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            }
+            .breadcrumb-item a {
+                color: var(--gold);
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .info-card {
+                background-color: var(--white);
+                border-radius: 15px;
+                padding: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                border-top: 5px solid var(--green);
+            }
+            .info-card .info-item {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            .info-card .info-item:last-child {
+                border-bottom: none;
+            }
+            .info-card .icon {
+                font-size: 1.5rem;
+                color: var(--green);
+                width: 40px;
+                text-align: center;
+            }
+
+            .criteria-section h3,
+            .criteria-section h4 {
+                font-weight: 700;
+                color: var(--dark-green);
+            }
+            .criteria-card {
+                background-color: var(--white);
+                border-radius: 10px;
+                border-left: 5px solid var(--green);
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            }
+            .criteria-card .criteria-title {
+                font-weight: 700;
+                color: var(--dark-gray);
+            }
+            .criteria-card .criteria-title .percent {
+                font-weight: 800;
+                color: var(--green);
+            }
+            .btn-action {
+                background: linear-gradient(45deg, var(--green), #20c997);
+                color: var(--white);
+                font-weight: 700;
+                border: none;
+                padding: 0.8rem 2rem;
+                transition: all 0.3s ease;
+            }
+            .btn-action:hover {
+                background: var(--dark-green);
+                color: white;
+                transform: scale(1.05) translateY(-3px);
+            }
+
+            .bg-blue {
+                background-color: var(--blue) !important;
+            }
+
+            .bg-green {
+                background-color: var(--green) !important;
+            }
+
+            .text-blue {
+                color: var(--blue) !important;
+            }
+
+            .breadcrumb-item + .breadcrumb-item::before {
+                float: left;
+                padding-right: var(--bs-breadcrumb-item-padding-x);
+                color: white;
+                content: var(--bs-breadcrumb-divider, '/');
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-green navbar-dark sticky-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="../assets/img/SIC White.svg" alt="SIC Logo" height="35" width="100%" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#berita">Berita & Acara</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#kontak">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="container" data-aos="fade-in">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center bg-transparent p-0">
+                        <li class="breadcrumb-item"><a href="../index.html">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="../event.html">Acara Kemerdekaan</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Lomba Kebersihan Lingkungan</li>
+                    </ol>
+                </nav>
+                <h1 class="display-4 mt-3">Lomba Kebersihan Lingkungan</h1>
+                <p class="lead">Mewujudkan Kelurahan Sasa yang Bersih, Sehat, dan Indah Melalui Kebersamaan.</p>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <div class="row g-5">
+                <!-- Kolom Informasi Ringkas (Kiri) -->
+                <div class="col-lg-4">
+                    <div class="position-sticky" style="top: 2rem">
+                        <div class="info-card" data-aos="fade-right">
+                            <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Informasi Lomba</h3>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="bi bi-calendar-range-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Periode Penilaian</h6>
+                                    <p class="mb-0 text-muted">12 - 16 Agustus 2025</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="bi bi-people-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Peserta</h6>
+                                    <p class="mb-0 text-muted">Seluruh 12 RT di Kelurahan Sasa</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start info-item">
+                                <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Hadiah Utama</h6>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala Bergilir + Rp 2.000.000,-</p>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 2:</strong> Rp 1.500.000,-</p>
+                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 3:</strong> Rp 1.000.000,-</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Koordinator</h6>
+                                    <p class="mb-0 text-muted">Tim Penilai Kelurahan Sasa</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Detail Aturan (Kanan) -->
+                <div class="col-lg-8 criteria-section" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Deskripsi & Tujuan Lomba</h3>
+                    <p class="text-muted">
+                        Lomba Kebersihan Lingkungan diadakan bukan hanya untuk mencari pemenang, tetapi untuk menumbuhkan semangat gotong royong dan rasa memiliki terhadap lingkungan kita. Melalui lomba ini, kita wujudkan Kelurahan Sasa
+                        yang asri, nyaman, dan menjadi contoh bagi lingkungan lainnya.
+                    </p>
+
+                    <h3 class="mt-5">Kriteria Penilaian</h3>
+                    <p class="text-muted">Tim juri akan melakukan penilaian secara langsung ke setiap RT. Berikut adalah aspek-aspek yang akan menjadi fokus penilaian:</p>
+
+                    <div class="mt-4">
+                        <!-- Kriteria 1 -->
+                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="criteria-title">Kebersihan Umum</span>
+                                <span class="percent">40%</span>
+                            </div>
+                            <ul class="list-unstyled text-muted mt-2 small">
+                                <li><i class="bi bi-check-circle me-2"></i>Jalanan, gang, dan selokan bebas dari sampah.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Tidak ada genangan air yang berpotensi menjadi sarang nyamuk.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Ketersediaan dan pengelolaan tempat sampah komunal.</li>
+                            </ul>
+                        </div>
+                        <!-- Kriteria 2 -->
+                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="criteria-title">Kerapian & Keindahan</span>
+                                <span class="percent">25%</span>
+                            </div>
+                            <ul class="list-unstyled text-muted mt-2 small">
+                                <li><i class="bi bi-check-circle me-2"></i>Penataan tanaman hias, pot bunga, dan area hijau.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Kerapian pagar rumah dan area publik.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Pemanfaatan lahan kosong untuk taman atau apotek hidup.</li>
+                            </ul>
+                        </div>
+                        <!-- Kriteria 3 -->
+                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="criteria-title">Kreativitas & Dekorasi HUT RI</span>
+                                <span class="percent">25%</span>
+                            </div>
+                            <ul class="list-unstyled text-muted mt-2 small">
+                                <li><i class="bi bi-check-circle me-2"></i>Pemasangan bendera, umbul-umbul, dan atribut kemerdekaan.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Adanya gapura atau hiasan unik bertema HUT RI ke-80.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Pemanfaatan barang bekas untuk dekorasi yang kreatif.</li>
+                            </ul>
+                        </div>
+                        <!-- Kriteria 4 -->
+                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="500">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="criteria-title">Partisipasi Warga</span>
+                                <span class="percent">10%</span>
+                            </div>
+                            <ul class="list-unstyled text-muted mt-2 small">
+                                <li><i class="bi bi-check-circle me-2"></i>Tingkat keterlibatan warga dalam kegiatan kerja bakti.</li>
+                                <li><i class="bi bi-check-circle me-2"></i>Adanya inisiatif warga dalam menjaga kebersihan secara swadaya.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
+                        <h3 class="fw-bold">Ayo Kompakkan Warga!</h3>
+                        <p>Kemenangan sejati adalah lingkungan yang bersih dan warga yang solid. Mari bersama-sama berpartisipasi untuk RT kita tercinta!</p>
+                        <button class="btn btn-lg btn-action mt-2"><i class="bi bi-calendar2-check-fill me-2"></i>Semangat Gotong Royong!</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center bg-green py-4">
+            <div class="container text-light">
+                <p class="mb-1">&copy; 2025 - Portal Informasi Kelurahan Sasa, Ternate.</p>
+                <p class="small m-0">Didesain dengan <i class="bi bi-heart-fill text-danger"></i> oleh <a href="#" class="text-light text-decoration-none">Pemuda Kelurahan Sasa</a>.</p>
+            </div>
+        </footer>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js"
+            integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true });
+        </script>
+    </body>
+</html>

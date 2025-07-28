@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sasa Information Center</title>
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="./assets/favicon/site.webmanifest" />
+
+        <!-- Styles -->
+        <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- AOS -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+        <!-- Custom Styles -->
+        <style>
+            :root {
+                --primary-red: #d22b2b; /* Merah yang lebih cerah */
+                --dark-red: #a41e22;
+                --white: #ffffff;
+                --off-white: #f8f9fa;
+                --dark-gray: #212529;
+                --light-gray: #6c757d;
+                --green: #15b788;
+                --dark-green: #0e8a67;
+                --gold: #ffd700;
+                --blue: #1395ba;
+                --dark-blue: #0d6a84;
+            }
+
+            body {
+                font-family: 'Albert Sans', sans-serif;
+                background-color: var(--off-white);
+                color: var(--dark-gray);
+            }
+
+            /* --- Navigation Bar --- */
+            .navbar {
+                transition: background-color 0.3s ease-in-out;
+            }
+            .navbar-scrolled {
+                background-color: rgba(33, 37, 41, 0.9);
+                backdrop-filter: blur(5px);
+            }
+            .navbar-brand {
+                font-weight: 700;
+            }
+            .nav-link {
+                font-weight: 500;
+                transition: color 0.2s;
+            }
+
+            /* --- Hero Section --- */
+            .hero-section {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/img/zoraya-project-IOnLOVBtGZs-unsplash.jpg') no-repeat center center;
+                background-size: cover;
+                color: var(--white);
+                padding: 10rem 1.5rem;
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+            }
+            .hero-section h1 {
+                font-weight: 800;
+                font-size: calc(2rem + 2.5vw);
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            }
+            .hero-section .lead {
+                font-weight: 400;
+                max-width: 800px;
+                margin: 1rem auto;
+            }
+
+            /* --- Countdown Timer --- */
+            #countdown {
+                background-color: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 15px;
+                padding: 1.5rem;
+                display: inline-block;
+                margin-top: 2rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .countdown-item {
+                display: inline-block;
+                margin: 0 1.5rem;
+                text-align: center;
+            }
+            .countdown-item span {
+                display: block;
+                font-size: 3rem;
+                font-weight: 700;
+            }
+            .countdown-item p {
+                font-size: 1rem;
+                margin-bottom: 0;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            /* --- Section Styling --- */
+            .section-title {
+                text-align: center;
+                margin-bottom: 4rem;
+                font-weight: 800;
+                font-size: 2.5rem;
+                position: relative;
+            }
+            .section-title::after {
+                content: '';
+                display: block;
+                width: 80px;
+                height: 4px;
+                background-color: var(--primary-red);
+                border-radius: 2px;
+                margin: 0.5rem auto 0;
+            }
+            section {
+                padding: 5rem 0;
+            }
+
+            /* --- Interactive Competition Cards --- */
+            .competition-card {
+                background: var(--white);
+                border: none;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s ease;
+                overflow: hidden;
+                height: 100%;
+            }
+            .competition-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            }
+            .competition-card .card-header {
+                background-color: var(--primary-red);
+                color: var(--white);
+                font-weight: 700;
+                font-size: 1.25rem;
+                border-bottom: 5px solid var(--dark-red);
+                text-align: center;
+                padding: 1rem;
+            }
+            .competition-card .card-icon {
+                font-size: 3rem;
+                color: var(--gold);
+            }
+            .competition-card .list-group-item {
+                border-color: #eee;
+            }
+
+            /* --- Schedule Table --- */
+            .schedule-table {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+            .schedule-table thead {
+                background-color: var(--dark-gray);
+                color: var(--white);
+                font-weight: 600;
+            }
+            .schedule-table .highlight-row {
+                background-color: #fff3cd;
+                font-weight: 600;
+                color: #664d03;
+            }
+
+            /* --- Contact Section --- */
+            .contact-card {
+                background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+                color: var(--white);
+                border-radius: 15px;
+                padding: 2rem;
+            }
+            .contact-btn {
+                background-color: var(--gold);
+                color: var(--dark-gray);
+                font-weight: 700;
+                border: none;
+                padding: 0.75rem 1.5rem;
+                transition: all 0.3s ease;
+            }
+            .contact-btn:hover {
+                transform: scale(1.05);
+            }
+            .bg-blue {
+                background-color: var(--blue);
+            }
+            .bg-green {
+                background-color: var(--green);
+            }
+            .bg-red {
+                background-color: var(--primary-red);
+            }
+            .text-blue {
+                color: var(--blue);
+            }
+            .text-green {
+                color: var(--green);
+            }
+
+            /* --- Footer --- */
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-red navbar-dark sticky-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="./assets/img/SIC White.svg" alt="SIC Logo" height="35" width="100%" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#berita">Berita & Acara</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#kontak">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header id="hero" class="hero-section d-flex align-items-center justify-content-center flex-column">
+            <div data-aos="fade-up">
+                <h1 class="display-3">
+                    SEMARAK MERAH PUTIH - GEBYAR KEMERDEKAAN HUT RI KE-80
+                    <img src="https://flagcdn.com/56x42/id.png" srcset="https://flagcdn.com/112x84/id.png 2x, https://flagcdn.com/168x126/id.png 3x" width="56" height="42" alt="Indonesia" />
+                </h1>
+                <p class="lead">"Bersama Pemuda, Mahasiswa KKN, dan Warga, Kita Bangun Sasa yang Solid dan Kreatif!"</p>
+            </div>
+            <div id="countdown" data-aos="fade-up" data-aos-delay="200">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Hari</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Jam</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Menit</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Detik</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Lomba Section -->
+            <section id="lomba" class="bg-white">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-up">Rangkaian Perlombaan</h2>
+                    <div class="row g-4 justify-content-center">
+                        <!-- Card 1: Kebersihan Lingkungan -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-trash3-fill me-2"></i>Kebersihan Lingkungan</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-house-heart-fill card-icon mb-3"></i>
+                                    <p class="card-text">Adu kreativitas dan kekompakan dalam menjaga keindahan lingkungan antar 12 RT.</p>
+                                    <a href="./pages/kebersihan-lingkungan.html" class="btn btn-outline-danger mt-auto">Lihat Kriteria</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Tarik Tambang -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-arrows-move me-2"></i>Tarik Tambang</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-grip-horizontal card-icon mb-3"></i>
+                                    <p class="card-text">Uji kekuatan tim dalam 3 kategori: Anak-anak, Dewasa Pria, dan Dewasa Wanita.</p>
+                                    <a href="./pages/tarik-tambang.html" class="btn btn-outline-danger mt-auto">Lihat Aturan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Pos Gim -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-flag-fill me-2"></i>Pos Gim</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-compass-fill card-icon mb-3"></i>
+                                    <p class="card-text">Petualangan seru menyelesaikan 5 tantangan di 5 pos berbeda secepat mungkin.</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Detail</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Domino -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-dice-5-fill me-2"></i>Domino</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-dice-3-fill card-icon mb-3"></i>
+                                    <p class="card-text">Adu strategi dan konsentrasi dalam permainan domino kategori Pria Dewasa.</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Aturan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5: Gerak Jalan Kreasi -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-music-note-beamed me-2"></i>Gerak Jalan Kreasi</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-boombox-fill card-icon mb-3"></i>
+                                    <p class="card-text">Tunjukkan kekompakan barisan dan kreativitas menari di setiap pos musik.</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Rute & Aturan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6: Balap Karung -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-person-arms-up me-2"></i>Balap Karung</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-cone-striped card-icon mb-3"></i>
+                                    <p class="card-text">Lomba klasik penuh tawa untuk 2 kategori: Anak-anak dan Dewasa.</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Aturan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 7: Estafet Balon Sarung -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-droplet-half me-2"></i>Estafet Balon Sarung</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-balloon-fill card-icon mb-3"></i>
+                                    <p class="card-text">Adu kekompakan memindahkan balon air dengan sarung dalam 3 kategori seru.</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Aturan</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 8: Rangking 1 -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-1-circle-fill me-2"></i>Rangking 1</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-award-fill card-icon mb-3"></i>
+                                    <p class="card-text">Uji wawasan pengetahuan umum untuk siswa SD dan SMP. Siapa yang bertahan?</p>
+                                    <a href="#" class="btn btn-outline-danger mt-auto">Lihat Detail</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 9, 10, 11: Lomba Keagamaan -->
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                            <div class="competition-card d-flex flex-column">
+                                <div class="card-header"><i class="bi bi-moon-stars-fill me-2"></i>Lomba Keagamaan</div>
+                                <div class="card-body text-center p-4 d-flex flex-column">
+                                    <i class="bi bi-mic-fill card-icon mb-3"></i>
+                                    <p class="card-text">Mencari bibit berbakat dalam Lomba Azan, Puisi, dan Tahfidz Qur'an kategori anak-anak.</p>
+                                    <a href="./pages/azan.html" class="btn btn-outline-danger mt-auto">Lihat Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jadwal Section -->
+            <!-- Jadwal Section (Konten tidak berubah) -->
+            <section id="jadwal">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-up">Jadwal Kegiatan</h2>
+                    <div class="table-responsive" data-aos="fade-up" data-aos-delay="100">
+                        <table class="table table-hover text-center align-middle schedule-table">
+                            <thead class="fs-6">
+                                <tr>
+                                    <th class="py-3"><i class="text-danger bi bi-calendar3 me-2"></i>Tanggal</th>
+                                    <th class="py-3"><i class="text-danger bi bi-clock-fill me-2"></i>Waktu</th>
+                                    <th class="py-3"><i class="text-danger bi bi-card-checklist me-2"></i>Kegiatan</th>
+                                    <th class="py-3"><i class="text-danger bi bi-geo-alt-fill me-2"></i>Lokasi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fs-6">
+                                <tr>
+                                    <td class="py-3">1 - 10 Agt 2025</td>
+                                    <td class="py-3">09:00 - 17:00</td>
+                                    <td class="py-3">Pendaftaran Lomba</td>
+                                    <td class="py-3">Sekretariat Panitia</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3">11 Agt 2025</td>
+                                    <td class="py-3">16:00</td>
+                                    <td class="py-3"><em>Technical Meeting</em></td>
+                                    <td class="py-3">Aula Kantor Lurah</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3">14 Agt 2025</td>
+                                    <td class="py-3">Sore & Malam</td>
+                                    <td class="py-3">Pos Gim, Estafet, Domino, Lomba Azan</td>
+                                    <td class="py-3">Area Kelurahan</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3">15 Agt 2025</td>
+                                    <td class="py-3">Siang - Malam</td>
+                                    <td class="py-3">Gerak Jalan, Rangking 1, Lomba Puisi</td>
+                                    <td class="py-3">Area Kelurahan</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3">16 Agt 2025</td>
+                                    <td class="py-3">Sore & Malam</td>
+                                    <td class="py-3">Tarik Tambang, Balap Karung, Lomba Tahfidz</td>
+                                    <td class="py-3">Lapangan & Masjid</td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td class="py-3"><strong>17 Agt 2025</strong></td>
+                                    <td class="py-3"><strong>19:30 - Selesai</strong></td>
+                                    <td class="py-3"><strong>Malam Puncak & Pengumuman Juara</strong></td>
+                                    <td class="py-3"><strong>Panggung Utama</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kontak Section -->
+            <section id="kontak" class="bg-white">
+                <div class="container">
+                    <h2 class="section-title" data-aos="fade-up">Informasi & Pendaftaran</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                            <div class="contact-card text-center shadow-lg">
+                                <h3 class="fw-bold">Jangan Sampai Ketinggalan!</h3>
+                                <p class="lead my-3">Segera daftarkan diri, keluarga, dan tim terbaikmu untuk memeriahkan acara ini. Pendaftaran GRATIS!</p>
+                                <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                                    <a target="_blank" href="https://wa.me/+6281344103642" class="btn contact-btn"><i class="bi bi-whatsapp me-2"></i>Opik (Pemuda)</a>
+                                    <a target="_blank" href="https://wa.me/+6282114992065" class="btn contact-btn"><i class="bi bi-whatsapp me-2"></i>Oman (KKN)</a>
+                                </div>
+                                <p class="mt-4 mb-0 small">Atau datang langsung ke Sekretariat Panitia di Kantor Lurah Sasa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center bg-red py-4">
+            <div class="container text-light">
+                <p class="mb-1">&copy; 2025 - Portal Informasi Kelurahan Sasa, Ternate.</p>
+                <p class="small m-0">Didesain dengan <i class="bi bi-heart-fill"></i> oleh <a href="#" class="text-light text-decoration-none">Pemuda Kelurahan Sasa</a>.</p>
+            </div>
+        </footer>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js"
+            integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            // Wait for the DOM to be fully loaded before running scripts
+            document.addEventListener('DOMContentLoaded', function () {
+                // 1. Initialize Animate On Scroll (AOS)
+                AOS.init({
+                    duration: 800, // values from 0 to 3000, with step 50ms
+                    once: true, // whether animation should happen only once - while scrolling down
+                });
+
+                // 2. Navbar background change on scroll
+                const navbar = document.getElementById('mainNavbar');
+                if (navbar) {
+                    window.onscroll = () => {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('navbar-scrolled');
+                        } else {
+                            navbar.classList.remove('navbar-scrolled');
+                        }
+                    };
+                }
+
+                // 3. Countdown Timer Logic
+                // Set the date we're counting down to (Acara dimulai 14 Agustus 2025)
+                const countDownDate = new Date('Aug 14, 2025 14:00:00').getTime();
+                const countdownElement = document.getElementById('countdown');
+
+                if (countdownElement) {
+                    const countdownFunction = setInterval(function () {
+                        const now = new Date().getTime();
+                        const distance = countDownDate - now;
+
+                        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+
+                        if (distance < 0) {
+                            clearInterval(countdownFunction);
+                            countdownElement.innerHTML = "<div class='fs-4 fw-bold'>ACARA TELAH DIMULAI!</div>";
+                        }
+                    }, 1000);
+                }
+
+                // 4. Smooth scrolling for nav links
+                document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(this.getAttribute('href'));
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

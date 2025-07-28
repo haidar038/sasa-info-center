@@ -1,0 +1,189 @@
+:root {
+    --primary-red: #d22b2b; /* Merah yang lebih cerah */
+    --dark-red: #a41e22;
+    --white: #ffffff;
+    --off-white: #f8f9fa;
+    --dark-gray: #212529;
+    --light-gray: #6c757d;
+    --gold: #ffd700;
+}
+
+body {
+    font-family: 'Albert Sans', sans-serif;
+    background-color: var(--off-white);
+    color: var(--dark-gray);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    transition: background-color 0.3s ease-in-out;
+}
+.navbar-scrolled {
+    background-color: rgba(33, 37, 41, 0.9);
+    backdrop-filter: blur(5px);
+}
+.navbar-brand {
+    font-weight: 700;
+}
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.nav-link:hover,
+.nav-link.active {
+    color: var(--gold) !important;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/A41E22/FFFFFF?text=Ilustrasi+Merah+Putih') no-repeat center center;
+    background-size: cover;
+    color: var(--white);
+    padding: 6rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero-section h1 {
+    font-weight: 800;
+    font-size: calc(2rem + 2.5vw);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+.hero-section .lead {
+    font-weight: 400;
+    max-width: 800px;
+    margin: 1rem auto;
+}
+
+/* --- Countdown Timer --- */
+#countdown {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: inline-block;
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.countdown-item {
+    display: inline-block;
+    margin: 0 1.5rem;
+    text-align: center;
+}
+.countdown-item span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+}
+.countdown-item p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Section Styling --- */
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    font-weight: 800;
+    font-size: 2.5rem;
+    position: relative;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+    border-radius: 2px;
+    margin: 0.5rem auto 0;
+}
+section {
+    padding: 5rem 0;
+}
+
+/* --- Interactive Competition Cards --- */
+.competition-card {
+    background: var(--white);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+}
+.competition-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.competition-card .card-header {
+    background-color: var(--primary-red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-bottom: 5px solid var(--dark-red);
+    text-align: center;
+    padding: 1rem;
+}
+.competition-card .card-icon {
+    font-size: 3rem;
+    color: var(--gold);
+}
+.competition-card .list-group-item {
+    border-color: #eee;
+}
+
+/* --- Schedule Table --- */
+.schedule-table {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+.schedule-table thead {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    font-weight: 600;
+}
+.schedule-table .highlight-row {
+    background-color: #fff3cd;
+    font-weight: 600;
+    color: #664d03;
+}
+
+/* --- Contact Section --- */
+.contact-card {
+    background: linear-gradient(135deg, var(--dark-red), var(--primary-red));
+    color: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+}
+.contact-btn {
+    background-color: var(--gold);
+    color: var(--dark-gray);
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+.contact-btn:hover {
+    background-color: var(--white);
+    transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+    padding: 2rem 0;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+footer a {
+    color: var(--gold);
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
