@@ -48,18 +48,16 @@
                 --dark-green: #0e8a67;
                 --gold: #ffd700;
                 --blue: #1395ba;
-                /* --dark-blue: #0d6a84; */
-                --primary-blue: #0d6efd;
-                --dark-blue: #0a58ca;
+                --dark-blue: #0d6a84;
             }
             body {
                 font-family: 'Albert Sans', sans-serif;
                 background-color: var(--off-white);
             }
             .page-header {
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://armadatownsquare.com/wp-content/uploads/2022/04/02.-Peserta-Lomba-Adzan.jpg') no-repeat center center;
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://cdn.rri.co.id/berita/Purwokerto/o/1724672428151-1000702437/6jk1rxu7zksb05s.jpeg') no-repeat center center;
                 background-size: cover;
-                background-position: right 15%;
+                background-position: center center;
                 padding: 6rem 0;
                 color: var(--white);
                 text-align: center;
@@ -73,12 +71,15 @@
                 text-decoration: none;
                 font-weight: 600;
             }
+            .breadcrumb-item a:hover {
+                text-decoration: underline;
+            }
             .info-card {
                 background-color: var(--white);
                 border-radius: 15px;
                 padding: 1.5rem;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                border-top: 5px solid var(--primary-blue);
+                border-top: 5px solid var(--primary-red);
             }
             .info-card .info-item {
                 padding: 0.75rem 0;
@@ -89,53 +90,46 @@
             }
             .info-card .icon {
                 font-size: 1.5rem;
-                color: var(--primary-blue);
+                color: var(--primary-red);
                 width: 40px;
                 text-align: center;
             }
-
-            .criteria-section h3,
-            .criteria-section h4 {
+            .rules-section h3,
+            .rules-section h4 {
                 font-weight: 700;
-                color: var(--dark-blue);
+                color: var(--dark-red);
             }
-            .criteria-card {
-                background-color: var(--white);
-                border-radius: 10px;
-                border-left: 5px solid var(--primary-blue);
-                padding: 1.5rem;
-                margin-bottom: 1rem;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            .rules-section .list-group-item {
+                border: none;
+                padding-left: 0.75rem;
+                display: flex;
+                align-items: center;
             }
-            .criteria-card .criteria-title {
-                font-weight: 700;
-                color: var(--dark-gray);
+            .rules-section .list-group-item .bi {
+                color: var(--primary-red);
+                margin-right: 10px;
+                margin-top: 5px;
             }
-            .criteria-card .criteria-title .percent {
-                font-weight: 800;
-                color: var(--primary-blue);
-            }
-
             .btn-register {
-                background: linear-gradient(45deg, var(--primary-blue), #3da9fc);
-                color: var(--white);
+                background: linear-gradient(45deg, var(--gold), #ffc107);
+                color: var(--dark-gray);
                 font-weight: 700;
                 border: none;
                 padding: 0.8rem 2rem;
                 transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
             }
             .btn-register:hover {
                 transform: scale(1.05) translateY(-3px);
-                box-shadow: 0 8px 25px rgba(13, 110, 253, 0.6);
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
             }
 
             .bg-blue {
-                background-color: var(--primary-blue) !important;
+                background-color: var(--primary-red) !important;
             }
 
             .text-blue {
-                color: var(--primary-blue) !important;
+                color: var(--primary-red) !important;
             }
 
             .breadcrumb-item + .breadcrumb-item::before {
@@ -178,14 +172,14 @@
         <header class="page-header">
             <div class="container" data-aos="fade-in">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb justify-content-center bg-transparent p-0">
+                    <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a href="../index.html">Beranda</a></li>
                         <li class="breadcrumb-item"><a href="../event.html">Acara Kemerdekaan</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">Lomba Azan</li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Lomba Estafet Balon Sarung</li>
                     </ol>
                 </nav>
-                <h1 class="display-4 mt-3">Lomba Azan Anak-Anak</h1>
-                <p class="lead">Mencari dan Membina Generasi Muazin Terbaik Kelurahan Sasa.</p>
+                <h1 class="display-4 mt-3">Lomba Estafet Balon Sarung</h1>
+                <p class="lead">Jaga Kekompakan, Amankan Balon Kemenangan!</p>
             </div>
         </header>
 
@@ -201,7 +195,7 @@
                                 <div class="icon me-3"><i class="bi bi-calendar-event-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Jadwal</h6>
-                                    <p class="mb-0 text-muted">Kamis, 14 Agt 2025, 20:00 WIT</p>
+                                    <p class="mb-0 text-muted">Kamis, 14 Agustus 2025, Pukul 16.00 WIT</p>
                                 </div>
                             </div>
 
@@ -209,15 +203,15 @@
                                 <div class="icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Lokasi</h6>
-                                    <p class="mb-0 text-muted">Masjid Nurul Huda Sasa</p>
+                                    <p class="mb-0 text-muted">Lapangan Utama Kelurahan Sasa</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-fill"></i></div>
+                                <div class="icon me-3"><i class="bi bi-people-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Kategori</h6>
-                                    <p class="mb-0 text-muted">Anak-Anak (Usia 7-12 tahun)</p>
+                                    <p class="mb-0 text-muted">Anak-Anak (Usia 7-12 tahun), Dewasa (Umum).</p>
                                 </div>
                             </div>
 
@@ -225,9 +219,8 @@
                                 <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah</h6>
-                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Rp 500.000,- + Bingkisan</p>
-                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 2:</strong> Piala + Rp 300.000,- + Bingkisan</p>
-                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 3:</strong> Piala + Rp 200.000,- + Bingkisan</p>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Uang Pembinaan + Hadiah Hiburan</p>
+                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 2:</strong> Uang Pembinaan + Hadiah Hiburan</p>
                                 </div>
                             </div>
 
@@ -235,7 +228,7 @@
                                 <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Narahubung</h6>
-                                    <p class="mb-0 text-muted">Ustadz Ahmad (0852-xxxx-xxxx)</p>
+                                    <p class="mb-0 text-muted">Pak Amir (0813-xxxx-xxxx)</p>
                                 </div>
                             </div>
                         </div>
@@ -243,42 +236,46 @@
                 </div>
 
                 <!-- Kolom Detail Aturan (Kanan) -->
-                <div class="col-lg-8 criteria-section" data-aos="fade-left" data-aos-delay="100">
-                    <h3>Deskripsi & Tujuan Lomba</h3>
-                    <p class="text-muted">
-                        Lomba Azan ini bertujuan untuk menumbuhkan kecintaan anak-anak kepada masjid dan syiar Islam, serta melatih keberanian dan mental untuk tampil di depan umum. Mari kita dukung para calon muazin masa depan Kelurahan
-                        Sasa.
-                    </p>
+                <div class="col-lg-8 rules-section" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Deskripsi Lomba</h3>
+                    <p class="text-muted">Lomba estafet yang menguji kekompakan, keseimbangan, dan kehati-hatian. Tim harus mengoper balon berisi air menggunakan sarung dari satu pemain ke pemain berikutnya hingga garis finish.</p>
 
-                    <h3 class="mt-5">Kriteria Penilaian</h3>
-                    <p class="text-muted">Setiap peserta akan dinilai berdasarkan tiga aspek utama oleh dewan juri yang kompeten.</p>
-
-                    <div class="mt-4">
-                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Makharijul Huruf & Tajwid</span><span class="percent">40%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Kejelasan dan ketepatan dalam melafalkan setiap huruf dan kaidah bacaan dalam lafaz azan.</p>
-                        </div>
-                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Irama & Suara</span><span class="percent">35%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Keindahan, kemerduan, dan kekuatan suara serta variasi irama yang dibawakan.</p>
-                        </div>
-                        <div class="criteria-card" data-aos="fade-up" data-aos-delay="400">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Adab & Kerapian</span><span class="percent">25%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Sikap (adab) saat mengumandangkan azan dan kerapian busana muslim yang dikenakan.</p>
-                        </div>
-                    </div>
-
-                    <h4 class="mt-5">Peraturan Tambahan</h4>
+                    <h4 class="mt-4">Syarat & Ketentuan</h4>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta wajib melakukan pendaftaran ulang 30 menit sebelum lomba dimulai.</li>
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta wajib mengenakan busana muslim yang rapi dan sopan.</li>
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Nomor urut penampilan akan diundi saat pendaftaran ulang.</li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Peserta adalah warga yang berdomisili di Kelurahan Sasa.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Pendaftaran GRATIS dan dibuka pada 1 - 10 Agustus 2025 di Sekretariat Panitia.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Setiap tim wajib mengikuti <em>Technical Meeting</em> pada 11 Agustus 2025 pukul 16:00 WIT.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Semua peserta wajib menjunjung tinggi sportivitas dan fair play.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Balon tidak boleh jatuh atau pecah. Jika pecah, tim harus mengulang dari pos awal.</div>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Kriteria Penilaian</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Tim tercepat yang berhasil memindahkan balon sampai ke garis finish.</div>
+                        </li>
                     </ul>
 
                     <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
-                        <h3 class="fw-bold">Daftarkan Putra Anda!</h3>
-                        <p>Beri kesempatan bagi putra Anda untuk menunjukkan bakatnya dan menjadi bagian dari syiar Islam di Kelurahan Sasa.</p>
-                        <a href="#" class="btn btn-lg btn-register mt-2"> <i class="bi bi-whatsapp me-2"></i>Hubungi Narahubung untuk Daftar </a>
+                        <h3 class="fw-bold">Jaga Keseimbangan, Raih Kemenangan!</h3>
+                        <p>Lomba ini butuh fokus, kerja sama, dan sedikit keberuntungan. Amankan balon air sampai ke garis finis dan jadilah juara!</p>
+                        <a href="#" class="btn btn-lg btn-register mt-2"> <i class="bi bi-whatsapp me-2"></i>Daftarkan Tim Kompakmu!</a>
                     </div>
                 </div>
             </div>

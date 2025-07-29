@@ -57,9 +57,9 @@
                 background-color: var(--off-white);
             }
             .page-header {
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://armadatownsquare.com/wp-content/uploads/2022/04/02.-Peserta-Lomba-Adzan.jpg') no-repeat center center;
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://tegal.kemenag.go.id/wp-content/uploads/2025/07/Lomba-Puisi.jpeg') no-repeat center center;
                 background-size: cover;
-                background-position: right 15%;
+                background-position: right center;
                 padding: 6rem 0;
                 color: var(--white);
                 text-align: center;
@@ -114,6 +114,23 @@
             .criteria-card .criteria-title .percent {
                 font-weight: 800;
                 color: var(--primary-blue);
+            }
+
+            .rules-section h3,
+            .rules-section h4 {
+                font-weight: 700;
+                color: var(--dark-purple);
+            }
+            .rules-section .list-group-item {
+                border: none;
+                padding-left: 0;
+                display: flex;
+                align-items: flex-start;
+            }
+            .rules-section .list-group-item .bi {
+                color: var(--primary-purple);
+                margin-right: 10px;
+                margin-top: 5px;
             }
 
             .btn-register {
@@ -181,11 +198,11 @@
                     <ol class="breadcrumb justify-content-center bg-transparent p-0">
                         <li class="breadcrumb-item"><a href="../index.html">Beranda</a></li>
                         <li class="breadcrumb-item"><a href="../event.html">Acara Kemerdekaan</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">Lomba Azan</li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Lomba Puisi</li>
                     </ol>
                 </nav>
-                <h1 class="display-4 mt-3">Lomba Azan Anak-Anak</h1>
-                <p class="lead">Mencari dan Membina Generasi Muazin Terbaik Kelurahan Sasa.</p>
+                <h1 class="display-4 mt-3">Lomba Puisi</h1>
+                <p class="lead">Suarakan Semangatmu, Lewat Untaian Kata Penuh Makna.</p>
             </div>
         </header>
 
@@ -201,7 +218,7 @@
                                 <div class="icon me-3"><i class="bi bi-calendar-event-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Jadwal</h6>
-                                    <p class="mb-0 text-muted">Kamis, 14 Agt 2025, 20:00 WIT</p>
+                                    <p class="mb-0 text-muted">Jum'at, 15 Agustus 2025, pukul 20:00 WIT (setelah Sholat Isya)</p>
                                 </div>
                             </div>
 
@@ -209,7 +226,7 @@
                                 <div class="icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Lokasi</h6>
-                                    <p class="mb-0 text-muted">Masjid Nurul Huda Sasa</p>
+                                    <p class="mb-0 text-muted">Aula Kantor Lurah Sasa</p>
                                 </div>
                             </div>
 
@@ -217,7 +234,7 @@
                                 <div class="icon me-3"><i class="bi bi-person-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Kategori</h6>
-                                    <p class="mb-0 text-muted">Anak-Anak (Usia 7-12 tahun)</p>
+                                    <p class="mb-0 text-muted">Anak-Anak (Usia 8-13 tahun)</p>
                                 </div>
                             </div>
 
@@ -225,9 +242,9 @@
                                 <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah</h6>
-                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Rp 500.000,- + Bingkisan</p>
-                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 2:</strong> Piala + Rp 300.000,- + Bingkisan</p>
-                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 3:</strong> Piala + Rp 200.000,- + Bingkisan</p>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Uang Pembinaan Rp 400.000,- + Paket Buku</p>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 2:</strong> Piala + Uang Pembinaan Rp 250.000,- + Paket Buku</p>
+                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 3:</strong> Piala + Uang Pembinaan Rp 150.000,- + Paket Buku</p>
                                 </div>
                             </div>
 
@@ -235,7 +252,7 @@
                                 <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Narahubung</h6>
-                                    <p class="mb-0 text-muted">Ustadz Ahmad (0852-xxxx-xxxx)</p>
+                                    <p class="mb-0 text-muted">Pak Amir (0852-xxxx-xxxx)</p>
                                 </div>
                             </div>
                         </div>
@@ -245,40 +262,43 @@
                 <!-- Kolom Detail Aturan (Kanan) -->
                 <div class="col-lg-8 criteria-section" data-aos="fade-left" data-aos-delay="100">
                     <h3>Deskripsi & Tujuan Lomba</h3>
-                    <p class="text-muted">
-                        Lomba Azan ini bertujuan untuk menumbuhkan kecintaan anak-anak kepada masjid dan syiar Islam, serta melatih keberanian dan mental untuk tampil di depan umum. Mari kita dukung para calon muazin masa depan Kelurahan
-                        Sasa.
-                    </p>
+                    <p class="text-muted">Wadah bagi anak-anak untuk mengekspresikan rasa cinta tanah air dan semangat kemerdekaan melalui untaian kata yang indah.</p>
 
                     <h3 class="mt-5">Kriteria Penilaian</h3>
                     <p class="text-muted">Setiap peserta akan dinilai berdasarkan tiga aspek utama oleh dewan juri yang kompeten.</p>
 
                     <div class="mt-4">
                         <div class="criteria-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Makharijul Huruf & Tajwid</span><span class="percent">40%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Kejelasan dan ketepatan dalam melafalkan setiap huruf dan kaidah bacaan dalam lafaz azan.</p>
+                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Penghayatan dan Ekspresi</span><span class="percent">40%</span></div>
+                            <p class="text-muted mt-2 mb-0 small">Kemampuan menjiwai dan menyampaikan isi puisi kepada penonton.</p>
                         </div>
                         <div class="criteria-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Irama & Suara</span><span class="percent">35%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Keindahan, kemerduan, dan kekuatan suara serta variasi irama yang dibawakan.</p>
+                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Vokal & Intonasi</span><span class="percent">35%</span></div>
+                            <p class="text-muted mt-2 mb-0 small">Kejelasan suara, artikulasi, dan dinamika nada (tinggi-rendah, cepat-lambat).</p>
                         </div>
                         <div class="criteria-card" data-aos="fade-up" data-aos-delay="400">
-                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Adab & Kerapian</span><span class="percent">25%</span></div>
-                            <p class="text-muted mt-2 mb-0 small">Sikap (adab) saat mengumandangkan azan dan kerapian busana muslim yang dikenakan.</p>
+                            <div class="d-flex justify-content-between align-items-center"><span class="criteria-title">Penampilan & Adab</span><span class="percent">25%</span></div>
+                            <p class="text-muted mt-2 mb-0 small">Sikap di atas panggung, kontak mata, dan kesopanan.</p>
                         </div>
                     </div>
 
+                    <h4 class="mt-5">Syarat dan Ketentuan</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta adalah anak-anak usia 8-13 tahun, warga Kelurahan Sasa.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Tema puisi wajib: "Pahlawanku" atau "Indonesia Maju".</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Naskah puisi (1 rangkap) diserahkan kepada panitia saat daftar ulang.</li>
+                    </ul>
+
                     <h4 class="mt-5">Peraturan Tambahan</h4>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta wajib melakukan pendaftaran ulang 30 menit sebelum lomba dimulai.</li>
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta wajib mengenakan busana muslim yang rapi dan sopan.</li>
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Nomor urut penampilan akan diundi saat pendaftaran ulang.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Durasi penampilan maksimal 7 menit.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta tidak diperkenankan menggunakan properti yang berlebihan.</li>
                     </ul>
 
                     <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
-                        <h3 class="fw-bold">Daftarkan Putra Anda!</h3>
-                        <p>Beri kesempatan bagi putra Anda untuk menunjukkan bakatnya dan menjadi bagian dari syiar Islam di Kelurahan Sasa.</p>
-                        <a href="#" class="btn btn-lg btn-register mt-2"> <i class="bi bi-whatsapp me-2"></i>Hubungi Narahubung untuk Daftar </a>
+                        <h3 class="fw-bold">Suarakan Jiwa Patriotikmu!</h3>
+                        <p>Tuangkan rasa cintamu pada Indonesia melalui kata-kata yang indah. Biarkan puisimu menggugah semangat kemerdekaan di hati semua orang.</p>
+                        <a href="#" class="btn btn-lg btn-register mt-2"> <i class="bi bi-whatsapp me-2"></i>Daftarkan Dirimu!</a>
                     </div>
                 </div>
             </div>
