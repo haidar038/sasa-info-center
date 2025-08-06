@@ -94,8 +94,6 @@
             .info-card .icon {
                 font-size: 1.5rem;
                 color: var(--primary-purple);
-                width: 40px;
-                text-align: center;
             }
 
             .rules-section h3,
@@ -104,6 +102,7 @@
                 color: var(--dark-purple);
             }
             .rules-section .list-group-item {
+                background-color: var(--off-white);
                 border: none;
                 padding-left: 0;
                 display: flex;
@@ -112,7 +111,6 @@
             .rules-section .list-group-item .bi {
                 color: var(--primary-purple);
                 margin-right: 10px;
-                margin-top: 5px;
             }
             .btn-register {
                 background: linear-gradient(45deg, var(--primary-purple), #818cf8);
@@ -202,15 +200,15 @@
                             <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Detail Lomba</h3>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-calendar-event-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-calendar"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Jadwal</h6>
-                                    <p class="mb-0 text-muted">Kamis, 14 Agustus 2025, 16:00 WIT</p>
+                                    <p class="mb-0 text-muted">Senin, 11 Agustus 2025, 16:00 WIT</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-location-dot"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Lokasi</h6>
                                     <p class="mb-0 text-muted">Aula Kantor Lurah Sasa</p>
@@ -218,7 +216,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-fill-gear"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-group"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Kategori</h6>
                                     <p class="mb-0 text-muted">Anak-Anak (SD Kelas 4-6), Remaja (SMP Kelas 7-9).</p>
@@ -226,7 +224,7 @@
                             </div>
 
                             <div class="d-flex align-items-start info-item">
-                                <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-trophy"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah</h6>
                                     <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Uang Pembinaan + Paket Alat Sekolah</p>
@@ -236,7 +234,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-check"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Narahubung</h6>
                                     <p class="mb-0 text-muted">Bapak Rizal (0821-xxxx-xxxx)</p>
@@ -249,15 +247,64 @@
                 <!-- Kolom Detail Aturan (Kanan) -->
                 <div class="col-lg-8 rules-section" data-aos="fade-left" data-aos-delay="100">
                     <h3>Deskripsi Lomba</h3>
-                    <p class="text-muted">Uji wawasan pengetahuan umum, sejarah, dan pengetahuan lokal. Jawab pertanyaan dengan benar untuk tetap bertahan. Siapa yang paling cerdas dan bertahan hingga akhir, dialah juaranya!</p>
+                    <p>
+                        Lomba cerdas cermat yang menguji pengetahuan umum, pengetahuan kebangsaan, dan wawasan lainnya. Peserta harus menentukan apakah sebuah pernyataan yang dibacakan itu "Benar" atau "Salah". Peserta yang salah menjawab
+                        akan langsung tereliminasi hingga tersisa satu pemenang.
+                    </p>
 
-                    <h4 class="mt-4">Syarat dan Ketentuan</h4>
+                    <h4 class="mt-4">Syarat & Ketentuan</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Peserta perorangan, wajib membawa papan tulis kecil/alat tulis.</div>
+                            <div>Peserta mendaftar secara perorangan.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Setiap peserta akan diberikan 2 (dua) buah papan/tanda oleh panitia, yaitu papan <strong>"BENAR"</strong> dan papan <strong>"SALAH"</strong>.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Peserta dilarang bertukar papan jawaban dengan peserta lain selama permainan berlangsung.</div>
                         </li>
                     </ul>
+
+                    <h4 class="mt-4">Mekanisme & Peraturan</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Seluruh peserta berkumpul di area permainan yang telah ditentukan.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Pembawa acara akan membacakan sebuah <strong>pernyataan</strong> (bukan pertanyaan). Contoh: "Ibu kota negara Indonesia adalah Jakarta.".</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Peserta diberi waktu singkat (sekitar 5-10 detik) untuk memutuskan apakah pernyataan tersebut Benar atau Salah.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Setelah pembawa acara memberi aba-aba, "Tiga... Dua... Satu... Angkat!", semua peserta harus mengangkat salah satu papan jawaban ("BENAR" atau "SALAH") secara serentak dan jelas.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>
+                                Peserta yang mengangkat jawaban yang salah, tidak mengangkat jawaban, atau terlambat mengangkat jawaban, akan dinyatakan <strong class="text-danger">gugur</strong> dan harus segera meninggalkan area
+                                permainan..
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Permainan akan berlanjut dengan pernyataan-pernyataan berikutnya dengan tingkat kesulitan yang semakin meningkat.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Peserta terakhir yang bertahan di area permainan adalah pemenangnya dan berhak atas gelar "Rangking 1".</div>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Kriteria Penilaian</h4>
+                    <p class="mb-0">Ketepatan dan kecepatan dalam menentukan jawaban. Pemenang adalah peserta terakhir yang bertahan.</p>
 
                     <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
                         <h3 class="fw-bold">Uji Wawasanmu!</h3>

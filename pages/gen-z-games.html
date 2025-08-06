@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sasa Information Center</title>
+
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png" />
+        <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+
+        <!-- Styles -->
+        <!-- <link rel="stylesheet" href="./assets/css/style.css" /> -->
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+            integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- AOS -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+        <!-- Custom Styles -->
+        <style>
+            :root {
+                --primary-red: #d22b2b; /* Merah yang lebih cerah */
+                --dark-red: #a41e22;
+                --white: #ffffff;
+                --off-white: #f8f9fa;
+                --dark-gray: #212529;
+                --light-gray: #6c757d;
+                --green: #15b788;
+                --dark-green: #0e8a67;
+                --gold: #ffd700;
+                --blue: #1395ba;
+                --dark-blue: #0d6a84;
+            }
+            body {
+                font-family: 'Albert Sans', sans-serif;
+                background-color: var(--off-white);
+            }
+            .page-header {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://fbi.cults3d.com/uploaders/22320923/illustration-file/0325423d-758e-4e57-9c93-7f3b82f4eed9/IMG_3713-1.jpg') no-repeat center center;
+                background-size: cover;
+                background-position: center center;
+                padding: 6rem 0;
+                color: var(--white);
+                text-align: center;
+            }
+            .page-header h1 {
+                font-weight: 800;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            }
+            .breadcrumb-item a {
+                color: var(--gold);
+                text-decoration: none;
+                font-weight: 600;
+            }
+            .breadcrumb-item a:hover {
+                text-decoration: underline;
+            }
+            .info-card {
+                background-color: var(--white);
+                border-radius: 15px;
+                padding: 1.5rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                border-top: 5px solid var(--primary-red);
+            }
+            .info-card .info-item {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid #eee;
+            }
+            .info-card .info-item:last-child {
+                border-bottom: none;
+            }
+            .info-card .icon {
+                font-size: 1.5rem;
+                color: var(--primary-red);
+            }
+            .rules-section h3,
+            .rules-section h4 {
+                font-weight: 700;
+                color: var(--dark-red);
+            }
+            .rules-section .list-group-item {
+                border: none;
+                background-color: var(--off-white);
+                padding-left: 0.75rem;
+                display: flex;
+                align-items: center;
+            }
+            .rules-section .list-group-item .bi {
+                color: var(--primary-red);
+                margin-right: 10px;
+            }
+            .btn-register {
+                background: linear-gradient(45deg, var(--gold), #ffc107);
+                color: var(--dark-gray);
+                font-weight: 700;
+                border: none;
+                padding: 0.8rem 2rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            }
+            .btn-register:hover {
+                transform: scale(1.05) translateY(-3px);
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            }
+
+            .bg-blue {
+                background-color: var(--primary-red) !important;
+            }
+
+            .text-blue {
+                color: var(--primary-red) !important;
+            }
+
+            .breadcrumb-item + .breadcrumb-item::before {
+                float: left;
+                padding-right: var(--bs-breadcrumb-item-padding-x);
+                color: white;
+                content: var(--bs-breadcrumb-divider, '/');
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-blue navbar-dark sticky-top" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="../assets/img/SIC White.svg" alt="SIC Logo" height="35" width="100%" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#berita">Berita & Acara</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html#kontak">Kontak</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <header class="page-header">
+            <div class="container" data-aos="fade-in">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="../index.html">Beranda</a></li>
+                        <li class="breadcrumb-item"><a href="../event.html">Acara Kemerdekaan</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Permainan Gen Z</li>
+                    </ol>
+                </nav>
+                <h1 class="display-4 mt-3">Permainan Gen Z</h1>
+                <p class="lead">Taklukkan Tantangan, Rebut Kemenangan!</p>
+            </div>
+        </header>
+
+        <main class="container my-5">
+            <div class="row g-5">
+                <!-- Kolom Informasi Ringkas (Kiri) -->
+                <div class="col-lg-4">
+                    <div class="position-sticky" style="top: 2rem">
+                        <div class="info-card" data-aos="fade-right">
+                            <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Detail Lomba</h3>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="fa fa-fw fa-calendar"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Jadwal</h6>
+                                    <p class="mb-0 text-muted">Kamis, 14 Agustus 2025, 16:00 WIT - Selesai</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="fa fa-fw fa-location-dot"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Lokasi</h6>
+                                    <p class="mb-0 text-muted">Lapangan Utama Kelurahan Sasa, dengan 5 pos yang tersebar di area lapangan.</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-group"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Kategori</h6>
+                                    <p class="mb-0 text-muted">Umum (Per tim, campuran, disarankan terdiri dari 3-4 orang).</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start info-item">
+                                <div class="icon me-3"><i class="fa fa-fw fa-trophy"></i></div>
+                                <div>
+                                    <h6 class="mb-1 fw-bold">Hadiah</h6>
+                                    <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Uang Pembinaan Rp 1.000.000,- + Sertifikat</p>
+                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 2:</strong> Uang Pembinaan Rp 750.000,- + Sertifikat</p>
+                                    <p class="mb-0 text-muted"><strong class="text-dark">Juara 3:</strong> Uang Pembinaan Rp 500.000,- + Sertifikat</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center info-item">
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-check"></i></div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Narahubung</h6>
+                                    <p class="mb-0 text-muted">Pak Amir (0813-xxxx-xxxx)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Detail Aturan (Kanan) -->
+                <div class="col-lg-8 rules-section" data-aos="fade-left" data-aos-delay="100">
+                    <h3>Deskripsi Lomba</h3>
+                    <p class="mb-0">
+                        Sebuah lomba ketangkasan modern yang membutuhkan kerjasama tim, komunikasi, logika, dan kecepatan setiap tim. Peserta akan berlomba dengan waktu untuk menyelesaikan 4 tantangan seru yang menguji berbagai kemampuan,
+                        mulai dari ingatan, pemecahan masalah, hingga ketangkasan fisik.
+                    </p>
+
+                    <h4 class="mt-4">Syarat & Ketentuan</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Peserta mendaftar sebagai satu tim.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Setiap tim harus menyelesaikan seluruh 4 pos secara berurutan.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Kerja sama tim adalah kunci untuk menyelesaikan setiap tantangan dengan cepat.</div>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Mekanisme & Tata Cara</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Tim akan dilepas dari garis start dengan interval waktu tertentu untuk menghindari penumpukan di pos pertama.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Waktu total akan dihitung dari saat tim dilepas di garis start hingga mereka melintasi garis finis setelah menyelesaikan pos ke-4.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Di setiap pos, tim harus menyelesaikan tantangan untuk mendapatkan paraf/stempel dari panitia sebelum dapat melanjutkan ke pos berikutnya.</div>
+                        </li>
+                    </ul>
+
+                    <h4 class="mt-4">Rincian Pos Mini Games</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div class="fw-bold">Pos 1 - Uji Ingatan Kartu (Card Match)</div>
+                        </li>
+                        <ol start="1" class="ms-4">
+                            <li><strong>Tantangan</strong>: Di atas meja, terdapat sejumlah kartu yang diletakkan terbalik. Tim harus menemukan semua pasangan kartu yang sama secepat mungkin dengan membuka dua kartu di setiap giliran.</li>
+                            <li><strong>Aturan</strong>: Hanya satu anggota tim yang boleh membalik kartu, namun anggota lain boleh membantu memberi arahan.</li>
+                        </ol>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div class="fw-bold">Pos 2 - Cocokkan Warna Botol</div>
+                        </li>
+                        <ol start="1" class="ms-4">
+                            <li><strong>Tantangan</strong>: Tantangan: Tugas tim adalah menyusun 5 botol di atas sebuah box agar urutan warnanya sama persis dengan urutan 5 botol rahasia yang telah disusun panitia di dalam box.</li>
+                            <li>
+                                <div><strong>Aturan</strong>: Hanya satu anggota tim yang boleh membalik kartu, namun anggota lain boleh membantu memberi arahan.</div>
+                                <div>
+                                    <ul>
+                                        <li>Panitia telah menyiapkan "kode rahasia" berupa 5 botol berwarna yang disusun acak di dalam box, tersembunyi dari pandangan peserta.</li>
+                                        <li>Tim akan diberikan 5 botol dengan warna-warna yang sama untuk digunakan menebak di atas box.</li>
+                                        <li>Tim harus menyusun 5 botol tersebut di atas box sesuai tebakan urutan pertama mereka.</li>
+                                        <li>Setelah selesai, panitia akan memberikan petunjuk berupa jumlah botol yang warnanya sudah tepat DAN posisinya sudah benar.</li>
+                                        <li>
+                                            Contoh: Panitia berkata, "2" atau (tergantung berapa banyak botol yang cocok). Ini berarti dari 5 botol yang disusun, ada 2 botol yang warnanya sudah tepat dan berada di posisi yang benar. Panitia
+                                            tidak memberitahu botol mana yang sudah benar.
+                                        </li>
+                                        <li>Berdasarkan petunjuk tersebut, tim harus berdiskusi dan mengubah kembali susunan botol untuk membuat tebakan berikutnya. Proses ini diulang terus.</li>
+                                        <li>Tantangan dianggap selesai ketika tim berhasil menyusun botol dengan urutan yang sempurna dan panitia memberikan petunjuk: "Selamat, 5 cocok!".</li>
+                                        <li>Hanya satu anggota tim yang boleh memindahkan botol, namun anggota lainnya wajib membantu berpikir dan menyusun strategi.</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ol>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div class="fw-bold">Pos 3 - Bisi Berisik (Tebak Kata Headset)</div>
+                        </li>
+                        <ol start="1" class="ms-4">
+                            <li><strong>Tantangan</strong>: Satu anggota tim memakai headset dengan musik yang sangat kencang. Anggota tim lainnya harus membuat rekannya menebak 3-5 kata dengan gerakan bibir atau peragaan gaya.</li>
+                            <li><strong>Aturan</strong>: Tantangan selesai jika semua kata berhasil ditebak atau waktu maksimal habis.</li>
+                        </ol>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div class="fw-bold">Pos 4 - Isi Air Di Wadah</div>
+                        </li>
+                        <ol start="1" class="ms-4">
+                            <li><strong>Tantangan</strong>: Tim harus memindahkan air dari ember sumber ke sebuah wadah target yang memiliki garis batas, menggunakan alat yang telah disediakan oleh panitia.</li>
+                            <li><strong>Aturan</strong>: Tim bekerja sama untuk mengisi wadah target hingga air mencapai garis batas yang ditentukan.</li>
+                        </ol>
+                    </ul>
+
+                    <h4 class="mt-4">Kriteria Penilaian</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Tim dengan catatan waktu total tercepat dari start hingga finish (setelah menyelesaikan semua 4 pos) adalah pemenangnya.</div>
+                        </li>
+                    </ul>
+
+                    <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
+                        <h3 class="fw-bold">Siap Berpetualang?</h3>
+                        <p>Adu kecepatan, ketangkasan, dan kerja sama tim dalam petualangan seru melintasi 5 pos tantangan. Hanya yang tercepat yang akan menjadi pemenang!</p>
+                        <a href="#" class="btn btn-lg btn-register mt-2"> <i class="bi bi-whatsapp me-2"></i>Daftarkan Tim Kamu!</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center bg-blue py-4">
+            <div class="container text-light">
+                <p class="mb-1">&copy; 2025 - Portal Informasi Kelurahan Sasa, Ternate.</p>
+                <p class="small m-0">Didesain dengan <i class="bi bi-heart-fill text-blue"></i> oleh <a href="#" class="text-light text-decoration-none">Pemuda Kelurahan Sasa</a>.</p>
+            </div>
+        </footer>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/js/all.min.js"
+            integrity="sha512-gBYquPLlR76UWqCwD06/xwal4so02RjIR0oyG1TIhSGwmBTRrIkQbaPehPF8iwuY9jFikDHMGEelt0DtY7jtvQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800, once: true });
+        </script>
+    </body>
+</html>

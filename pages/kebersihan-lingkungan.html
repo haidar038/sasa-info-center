@@ -88,8 +88,6 @@
             .info-card .icon {
                 font-size: 1.5rem;
                 color: var(--green);
-                width: 40px;
-                text-align: center;
             }
 
             .criteria-section h3,
@@ -112,6 +110,17 @@
             .criteria-card .criteria-title .percent {
                 font-weight: 800;
                 color: var(--green);
+            }
+            .list-group-item {
+                background-color: var(--off-white);
+                border: none;
+                padding-left: 0.75rem;
+                display: flex;
+                align-items: center;
+            }
+            .list-group-item .bi {
+                color: var(--dark-green);
+                margin-right: 10px;
             }
             .btn-action {
                 background: linear-gradient(45deg, var(--green), #20c997);
@@ -199,7 +208,7 @@
                             <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Informasi Lomba</h3>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-calendar-range-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-calendar-days"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Periode Penilaian</h6>
                                     <p class="mb-0 text-muted">12 - 16 Agustus 2025</p>
@@ -207,7 +216,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-people-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-group"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Peserta</h6>
                                     <p class="mb-0 text-muted">Seluruh 12 RT di Kelurahan Sasa</p>
@@ -215,7 +224,7 @@
                             </div>
 
                             <div class="d-flex align-items-start info-item">
-                                <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-trophy"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah Utama</h6>
                                     <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala Bergilir + Rp 2.000.000,-</p>
@@ -225,7 +234,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-check"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Koordinator</h6>
                                     <p class="mb-0 text-muted">Tim Penilai Kelurahan Sasa</p>
@@ -238,12 +247,56 @@
                 <!-- Kolom Detail Aturan (Kanan) -->
                 <div class="col-lg-8 criteria-section" data-aos="fade-left" data-aos-delay="100">
                     <h3>Deskripsi & Tujuan Lomba</h3>
-                    <p class="text-muted">
+                    <p class="mb-0">
                         Lomba Kebersihan Lingkungan diadakan bukan hanya untuk mencari pemenang, tetapi untuk menumbuhkan semangat gotong royong dan rasa memiliki terhadap lingkungan kita. Melalui lomba ini, kita wujudkan Kelurahan Sasa
                         yang asri, nyaman, dan menjadi contoh bagi lingkungan lainnya.
                     </p>
 
-                    <h3 class="mt-5">Kriteria Penilaian</h3>
+                    <h3 class="mt-4">Syarat & Ketentuan</h3>
+                    <div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill d-flex justify-content-center align-items-center"></i>
+                                <div>Setiap RT secara otomatis menjadi peserta.</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Ketua RT bertindak sebagai koordinator utama di wilayahnya.</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Area yang dinilai adalah seluruh wilayah RT, mencakup jalan utama, gang, saluran air, taman (jika ada), dan depan rumah warga.</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Diperbolehkan menggunakan hiasan/dekorasi yang relevan dengan tema HUT RI ke-80.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="mt-4">Mekanisme & Tata Cara</h3>
+                    <div class="text-muted">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill d-flex justify-content-center align-items-center"></i>
+                                <div>Periode persiapan dan kerja bakti lingkungan ditetapkan oleh panitia (misalnya: 11 - 13 Agustus 2025).</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Tim juri akan melakukan penilaian secara rahasia (tanpa pemberitahuan) dalam rentang waktu yang ditentukan.</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Juri akan berkeliling ke seluruh 12 RT untuk melakukan observasi dan penilaian langsung.</div>
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <div>Pengumuman pemenang akan dilakukan pada malam puncak acara 17 Agustus.</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="mt-4">Kriteria Penilaian</h3>
                     <p class="text-muted">Tim juri akan melakukan penilaian secara langsung ke setiap RT. Berikut adalah aspek-aspek yang akan menjadi fokus penilaian:</p>
 
                     <div class="mt-4">

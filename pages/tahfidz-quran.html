@@ -90,8 +90,6 @@
             .info-card .icon {
                 font-size: 1.5rem;
                 color: var(--primary-blue);
-                width: 40px;
-                text-align: center;
             }
 
             .criteria-section h3,
@@ -116,21 +114,16 @@
                 color: var(--primary-blue);
             }
 
-            .rules-section h3,
-            .rules-section h4 {
-                font-weight: 700;
-                color: var(--dark-purple);
-            }
-            .rules-section .list-group-item {
+            .criteria-section .list-group-item {
+                background-color: var(--off-white);
                 border: none;
                 padding-left: 0;
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
             }
-            .rules-section .list-group-item .bi {
-                color: var(--primary-purple);
+            .criteria-section .list-group-item .bi {
+                color: var(--primary-blue);
                 margin-right: 10px;
-                margin-top: 5px;
             }
 
             .btn-register {
@@ -215,7 +208,7 @@
                             <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Detail Lomba</h3>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-calendar-event-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-calendar"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Jadwal</h6>
                                     <p class="mb-0 text-muted">Sabtu, 16 Agustus 2025, pukul 20:00 WIT (setelah Sholat Isya).</p>
@@ -223,15 +216,15 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-location-dot"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Lokasi</h6>
-                                    <p class="mb-0 text-muted">Masjid Nurul Huda Sasa (atau masjid utama setempat).</p>
+                                    <p class="mb-0 text-muted">Masjid Raudatul Muflihin (atau masjid utama setempat).</p>
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-group"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Kategori</h6>
                                     <p class="mb-0 text-muted">Anak-Anak (Usia 7-12 tahun)</p>
@@ -239,7 +232,7 @@
                             </div>
 
                             <div class="d-flex align-items-start info-item">
-                                <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-trophy"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah</h6>
                                     <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Uang Pembinaan Rp 500.000,- + Bingkisan</p>
@@ -249,7 +242,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-check"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Narahubung</h6>
                                     <p class="mb-0 text-muted">Pak Amir (0852-xxxx-xxxx)</p>
@@ -264,7 +257,24 @@
                     <h3>Deskripsi & Tujuan Lomba</h3>
                     <p class="text-muted">Menguji dan mengapresiasi kemampuan anak-anak dalam menghafal ayat-ayat suci Al-Qur'an.</p>
 
-                    <h3 class="mt-5">Kriteria Penilaian</h3>
+                    <h4 class="mt-4">Syarat & Ketentuan</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta mendaftar secara perorangan.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Materi lomba adalah surat-surat dalam Juz 30.</li>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta mengenakan busana muslim yang rapi.</li>
+                    </ul>
+
+                    <h4 class="mt-4">Mekanisme & Tata Cara</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Lomba terdiri dari 2 babak:</li>
+                        <ul>
+                            <li><strong>Babak 1 (Sambung Ayat):</strong> Juri akan membacakan penggalan awal sebuah ayat, dan peserta harus melanjutkannya.</li>
+                            <li><strong>Babak 2 (Tebak Surat):</strong> Juri akan membacakan sebuah ayat secara acak, dan peserta harus menebak nama surat dari ayat tersebut, lalu melanjutkan bacaan beberapa ayat.</li>
+                        </ul>
+                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Setiap peserta akan mendapatkan beberapa soal dari dewan juri.</li>
+                    </ul>
+
+                    <h3 class="mt-4">Kriteria Penilaian</h3>
                     <p class="text-muted">Setiap peserta akan dinilai berdasarkan tiga aspek utama oleh dewan juri yang kompeten.</p>
 
                     <div class="mt-4">
@@ -282,13 +292,7 @@
                         </div>
                     </div>
 
-                    <h4 class="mt-5">Syarat dan Ketentuan</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Peserta adalah anak-anak usia 7-12 tahun, warga Kelurahan Sasa.</li>
-                        <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Materi hafalan adalah surat-surat pilihan dari Juz 30 (akan diinformasikan saat technical meeting).</li>
-                    </ul>
-
-                    <h4 class="mt-5">Peraturan Tambahan</h4>
+                    <h4 class="mt-4">Peraturan Tambahan</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Metode tes adalah sambung ayat (juri membacakan awal ayat, peserta melanjutkan).</li>
                         <li class="list-group-item"><i class="bi bi-check-circle-fill me-2"></i>Setiap peserta akan diuji beberapa soal sambung ayat secara acak.</li>

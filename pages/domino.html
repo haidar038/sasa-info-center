@@ -94,25 +94,22 @@
             .info-card .icon {
                 font-size: 1.5rem;
                 color: var(--primary-purple);
-                width: 40px;
-                text-align: center;
             }
-
             .rules-section h3,
             .rules-section h4 {
                 font-weight: 700;
                 color: var(--dark-purple);
             }
             .rules-section .list-group-item {
+                background-color: var(--off-white);
                 border: none;
                 padding-left: 0;
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
             }
             .rules-section .list-group-item .bi {
                 color: var(--primary-purple);
                 margin-right: 10px;
-                margin-top: 5px;
             }
             .btn-register {
                 background: linear-gradient(45deg, var(--primary-purple), #818cf8);
@@ -202,7 +199,7 @@
                             <h3 class="fw-bold border-bottom pb-3 mb-3 text-center">Detail Lomba</h3>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-calendar-event-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-calendar"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Jadwal</h6>
                                     <p class="mb-0 text-muted">Mulai Kamis, 14 Agt 2025, 20:00 WIT</p>
@@ -210,7 +207,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-location-dot"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Lokasi</h6>
                                     <p class="mb-0 text-muted">Aula Kantor Lurah Sasa</p>
@@ -218,7 +215,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-fill-gear"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-group"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Kategori</h6>
                                     <p class="mb-0 text-muted">Pria Dewasa (Tim 2 Orang)</p>
@@ -226,7 +223,7 @@
                             </div>
 
                             <div class="d-flex align-items-start info-item">
-                                <div class="icon me-3"><i class="bi bi-trophy-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-trophy"></i></div>
                                 <div>
                                     <h6 class="mb-1 fw-bold">Hadiah</h6>
                                     <p class="mb-1 text-muted"><strong class="text-dark">Juara 1:</strong> Piala + Rp 1.000.000,-</p>
@@ -236,7 +233,7 @@
                             </div>
 
                             <div class="d-flex align-items-center info-item">
-                                <div class="icon me-3"><i class="bi bi-person-check-fill"></i></div>
+                                <div class="icon me-3"><i class="fa fa-fw fa-user-check"></i></div>
                                 <div>
                                     <h6 class="mb-0 fw-bold">Narahubung</h6>
                                     <p class="mb-0 text-muted">Bapak Rizal (0821-xxxx-xxxx)</p>
@@ -249,49 +246,52 @@
                 <!-- Kolom Detail Aturan (Kanan) -->
                 <div class="col-lg-8 rules-section" data-aos="fade-left" data-aos-delay="100">
                     <h3>Deskripsi Lomba</h3>
-                    <p class="text-muted">
+                    <p class="mb-0">
                         Lomba Domino diadakan untuk mempererat tali silaturahmi antarwarga melalui permainan yang membutuhkan strategi dan kerja sama tim. Tunjukkan keahlian Anda bersama pasangan dan raih gelar juara Domino Kelurahan Sasa!
                     </p>
 
-                    <h4 class="mt-4">Format & Sistem Pertandingan</h4>
+                    <h4 class="mt-4">Syarat & Ketentuan</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Pertandingan dimainkan secara beregu (2 vs 2).</div>
+                            <div>Peserta mendaftar sebagai tim (2 orang).</div>
                         </li>
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Turnamen menggunakan <strong>Sistem Gugur</strong>. Tim yang kalah tidak dapat melanjutkan ke babak berikutnya.</div>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-check-circle-fill"></i>
-                            <div>Satu babak (1 game) dimenangkan oleh pasangan yang pertama kali mencapai <strong>skor 100</strong>.</div>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="bi bi-check-circle-fill"></i>
-                            <div>Pemenang pertandingan adalah pasangan yang memenangkan <strong>2 dari 3 game (Best of Three)</strong>.</div>
+                            <div>Peserta dilarang memberikan kode atau isyarat yang berlebihan kepada rekan satu tim.</div>
                         </li>
                     </ul>
 
-                    <h4 class="mt-4">Aturan Permainan</h4>
+                    <h4 class="mt-4">Mekanisme & Peraturan Permainan</h4>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Permainan dimulai oleh pemain yang memiliki kartu balak tertinggi (dimulai dari balak 6).</div>
+                            <div>Menggunakan sistem turnamen (bisa poin atau sistem gugur).</div>
                         </li>
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Pemain yang kartunya habis terlebih dahulu memenangkan putaran tersebut. Poin dihitung dari jumlah bulatan pada kartu lawan yang tersisa.</div>
+                            <div>Satu meja diisi oleh 2 tim (4 orang).</div>
                         </li>
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Jika terjadi "gaple" (tidak ada pemain yang bisa melanjutkan), pemenang adalah pemain dengan jumlah bulatan terkecil di tangan. Poin dihitung dari sisa kartu semua pemain.</div>
+                            <div>Aturan permainan mengikuti aturan gaple yang umum berlaku (misal: jika pemain "pass", gilirannya hangus untuk putaran tersebut).</div>
                         </li>
                         <li class="list-group-item">
                             <i class="bi bi-check-circle-fill"></i>
-                            <div>Dilarang keras memberi kode atau isyarat kepada teman satu tim. Pelanggaran akan diberikan sanksi berupa pengurangan poin atau diskualifikasi.</div>
+                            <div>Pemenang ronde adalah pemain yang kartunya habis lebih dulu. Tim pemenang mendapatkan poin sejumlah total angka pada kartu yang tersisa di tangan lawan.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Jika permainan "terkunci" (gap), pemenangnya adalah tim yang pemainnya memiliki jumlah angka terkecil di tangan.</div>
+                        </li>
+                        <li class="list-group-item">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <div>Pertandingan dimainkan hingga salah satu tim mencapai skor target (misal: 100 poin) atau dalam batas waktu tertentu.</div>
                         </li>
                     </ul>
+
+                    <h4 class="mt-4">Kriteria Penilaian</h4>
+                    <p class="mb-0">Tim yang berhasil mencapai skor target atau memiliki skor tertinggi saat waktu habis adalah pemenangnya.</p>
 
                     <div class="text-center mt-5 p-4 bg-white rounded-3 shadow-sm">
                         <h3 class="fw-bold">Buktikan Kehebatan Tim Anda!</h3>
