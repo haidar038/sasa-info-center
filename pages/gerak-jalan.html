@@ -339,14 +339,17 @@
                     <!-- Section untuk Map rute gerak jalan -->
                     <h4 class="mt-4">Rute Gerak Jalan</h4>
                     <!-- MAP STARTS HERE (injected) -->
-                    <div id="map" data-aos="fade-up" data-aos-delay="200"></div>
-                    <div class="infoBoxMap">
-                        <strong>Rute Gerak Jalan</strong><br />
-                        Start/Finish: <code>0.755086, 127.326329</code><br />
-                        <small>Drag marker untuk fine-tune. Route mengikuti jalan (OSRM).</small>
-                        <div style="margin-top: 6px">
-                            <button id="zoomToRoute" class="btn btn-sm btn-outline-secondary">Zoom ke rute</button>
-                            <button id="exportGpx" class="btn btn-sm btn-outline-success">Download GPX</button>
+                    <div class="map-container position-relative">
+                        <div id="map" data-aos="fade-up" data-aos-delay="200"></div>
+                        <div class="infoBoxMap">
+                            <strong>Rute Gerak Jalan</strong>
+                            <!-- <br />
+                            Start/Finish: <code>0.755086, 127.326329</code><br />
+                            <small>Drag marker untuk fine-tune. Route mengikuti jalan (OSRM).</small> -->
+                            <div style="margin-top: 6px">
+                                <button id="zoomToRoute" class="btn btn-sm btn-outline-secondary">Zoom ke rute</button>
+                                <!-- <button id="exportGpx" class="btn btn-sm btn-outline-success">Download GPX</button> -->
+                            </div>
                         </div>
                     </div>
                     <p>Rute ini mengikuti jalan utama di Kelurahan Sasa, dimulai dari Pasar Syariah Sasa (Start/Finish) dan melewati 4 pos checkpoint. Setiap pos akan ada penilaian untuk kreativitas gerakan sesuai lagu yang diputar.</p>
@@ -472,7 +475,7 @@
 
                 const map = L.map('map', {
                     center: mapCenter,
-                    zoom: 18,
+                    zoom: 19,
                     minZoom: 15,
                     maxZoom: 19,
                     maxBounds: bounds,
