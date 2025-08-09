@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Map Lomba - Routing (Leaflet + OSRM)</title>
+
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <!-- Leaflet Routing Machine CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+        <style>
+            html,
+            body,
+            #map {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+            }
+            .numbered-marker {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background: #2b8cff;
+                color: #fff;
+                font-weight: 700;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+                border: 2px solid #fff;
+            }
+            .infoBox {
+                position: absolute;
+                right: 8px;
+                top: 8px;
+                z-index: 1000;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 8px 10px;
+                border-radius: 6px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                font-size: 13px;
+            }
+            .btn {
+                cursor: pointer;
+                padding: 6px 8px;
+                border-radius: 6px;
+                border: 1px solid #ddd;
+                background: #f7f7f7;
+            }
+            .leaflet-routing-container {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <div class="infoBox">
+            <b>Map Lomba - Routing</b>
+            <div>Map center: <code>0.757905, 127.328142</code></div>
+            <div>Start/Finish: <code>0.755086, 127.326329</code></div>
+            <div style="margin-top: 6px"><button id="zoomToRoute" class="btn">Zoom ke rute</button></div>
+        </div>
+
+        <!-- Leaflet + Routing libs -->
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+
+        <script>
+            // map center from your OSM URL
+            const mapCenter = [0.757905, 127.328142];
+
+            // Start / Finish (keep as requested)
+            const start = L.latLng(0.755086, 127.326329);
+
+            // 4 checkpoints in the order provided
+            const checkpoints = [
+                L.latLng(0.7582765678062566, 127.3262993428719), // pos 1
+                L.latLng(0.7602738896445089, 127.32562045910554), // pos 2
+                L.latLng(0.7562994562744904, 127.33109090056065), // pos 3
+                L.latLng(0.7555200640387053, 127.32870067376965), // pos 4
+            ];
+
+            // bounding box for locking area (adjust delta if needed)
+            const delta = 0.006;
+            const bounds = L.latLngBounds([mapCenter[0] - delta, mapCenter[1] - delta], [mapCenter[0] + delta, mapCenter[1] + delta]);
+
+            const map = L.map('map', {
+                center: mapCenter,
+                zoom: 17,
+                minZoom: 15,
+                maxZoom: 19,
+                maxBounds: bounds,
+                maxBoundsViscosity: 1.0,
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors',
+                maxZoom: 19,
+            }).addTo(map);
+
+            // icon Start/Finish: racing-flag.svg (put in same folder)
+            const startIcon = L.icon({
+                iconUrl: './assets/img/racing-flag.svg',
+                iconSize: [34, 34],
+                iconAnchor: [17, 34],
+                popupAnchor: [0, -34],
+            });
+
+            // helper number icon
+            function makeNumberIcon(n) {
+                return L.divIcon({
+                    className: '',
+                    html: `<div class="numbered-marker">${n}</div>`,
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 30],
+                    popupAnchor: [0, -30],
+                });
+            }
+
+            // prepare waypoints: start -> pos1 -> pos2 -> pos3 -> pos4 -> start (loop)
+            const waypoints = [start, ...checkpoints, start];
+
+            // custom marker creation for plan
+            function createWaypointMarker(i, wp) {
+                // i: index in waypoints array
+                const isStart = i === 0 || i === waypoints.length - 1;
+                const labelIndex = isStart ? 'S' : i; // because i=1..4 correspond to pos1..pos4
+                const icon = isStart ? startIcon : makeNumberIcon(labelIndex);
+
+                // make draggable marker so user bisa geser titik
+                const marker = L.marker(wp.latLng, {
+                    draggable: true,
+                    icon,
+                });
+
+                const title = isStart ? 'Start / Finish' : `Pos ${labelIndex}`;
+                marker.bindPopup(`<b>${title}</b><br>${wp.latLng.lat.toFixed(6)}, ${wp.latLng.lng.toFixed(6)}<br>Drag untuk ubah posisi`);
+
+                // when marker dragged, update waypoint and route
+                marker.on('dragend', function (e) {
+                    const latlng = e.target.getLatLng();
+                    routingControl.spliceWaypoints(i, 1, latlng); // replace waypoint i
+                });
+
+                return marker;
+            }
+
+            // instantiate routing control using OSRM public demo
+            const routingControl = L.Routing.control({
+                waypoints: waypoints,
+                router: L.Routing.osrmv1({
+                    serviceUrl: 'https://router.project-osrm.org/route/v1',
+                }),
+                plan: L.Routing.plan(waypoints, {
+                    createMarker: createWaypointMarker,
+                    draggableWaypoints: true,
+                    addWaypoints: false, // disable adding new intermediate waypoints via map click
+                }),
+                show: false, // hide the default itinerary panel; set true if you want turn-by-turn list
+                fitSelectedRoutes: true,
+                routeWhileDragging: true,
+                lineOptions: {
+                    styles: [{ color: '#ff2b2b', opacity: 0.95, weight: 6 }],
+                },
+            }).addTo(map);
+
+            // zoom to full route when button clicked
+            document.getElementById('zoomToRoute').addEventListener('click', () => {
+                // wait until a route is calculated; if not yet, fit to waypoints bounds
+                const route = routingControl.getPlan().getWaypoints();
+                if (route && route.length) {
+                    const latlngs = route.map((w) => w.latLng);
+                    map.fitBounds(L.latLngBounds(latlngs), { padding: [40, 40] });
+                } else {
+                    map.fitBounds(bounds);
+                }
+            });
+
+            // optional: show the locked bounding rectangle for debugging (comment out if not needed)
+            // L.rectangle(bounds, {color:'#666', weight:1, dashArray:'4 6', fill:false}).addTo(map);
+
+            // export current route geojson convenience
+            function exportRouteGeoJSON() {
+                const routes = routingControl.getRoutes();
+                if (!routes || !routes.length) return null;
+                // take first route
+                const coords = routes[0].coordinates.map((c) => [c.lng, c.lat]); // GeoJSON order [lng,lat]
+                return {
+                    type: 'Feature',
+                    properties: { name: 'rute-lomba' },
+                    geometry: { type: 'LineString', coordinates: coords },
+                };
+            }
+
+            // example usage: copy to console when needed
+            // setTimeout(() => console.log(JSON.stringify(exportRouteGeoJSON(), null, 2)), 3000);
+
+            // small UX: ensure initial route is requested
+            routingControl.once('routesfound', function () {
+                // neat, route found
+            });
+        </script>
+    </body>
+</html>
