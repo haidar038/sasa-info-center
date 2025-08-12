@@ -230,39 +230,70 @@
     // Fungsi untuk load Lightbox CSS dan JS
     function loadLightbox() {
         return new Promise((resolve, reject) => {
+            // Check jika lightbox sudah ada
+            if (typeof lightbox !== 'undefined') {
+                resolve();
+                return;
+            }
+
             // Load CSS
             const cssLink = document.createElement('link');
             cssLink.rel = 'stylesheet';
             cssLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css';
-            cssLink.integrity = 'sha512-DKdRaC0QGJ/kjx0U0TtJNCamKnN4l+wsMdION3GG0WVK6hIoJ1UPHRHeXNiGsXdrmq19JJxgIubb/Z7Og2qJww==';
+            cssLink.integrity = 'sha512-tiaHHfpKL4hg1ZhXPfQ4vCjNZNcmx+FnMH4aW9lCo/8jKqfxpfUZn5Q7qPjTFjTVgRzJHnbYIhNTq1u44CxnA==';
             cssLink.crossOrigin = 'anonymous';
             cssLink.referrerPolicy = 'no-referrer';
             document.head.appendChild(cssLink);
 
-            // Load JS
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js';
-            script.integrity = 'sha512-KbRFbjA5bwNan6DvPl1ODUolvTTZ/vckssnFhka5cG80JVa5zSlRPCr055xSgU/q6oMIGhZWLhcbgIC0fyw3RQ==';
-            script.crossOrigin = 'anonymous';
-            script.referrerPolicy = 'no-referrer';
+            // Load jQuery jika belum ada (required by lightbox)
+            const loadjQuery = () => {
+                return new Promise((resolveJQ, rejectJQ) => {
+                    if (typeof jQuery !== 'undefined') {
+                        resolveJQ();
+                        return;
+                    }
 
-            script.onload = () => {
-                // Configure lightbox options setelah loaded
-                if (typeof lightbox !== 'undefined') {
-                    lightbox.option({
-                        resizeDuration: 200,
-                        wrapAround: true,
-                        fadeDuration: 300,
-                        imageFadeDuration: 300,
-                        showImageNumberLabel: true,
-                        albumLabel: 'Foto %1 dari %2',
-                    });
-                }
-                resolve();
+                    const jqScript = document.createElement('script');
+                    jqScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js';
+                    jqScript.onload = () => resolveJQ();
+                    jqScript.onerror = () => rejectJQ(new Error('Failed to load jQuery'));
+                    document.head.appendChild(jqScript);
+                });
             };
 
-            script.onerror = () => reject(new Error('Failed to load Lightbox'));
-            document.head.appendChild(script);
+            // Load jQuery terlebih dahulu, lalu lightbox
+            loadjQuery()
+                .then(() => {
+                    // Load Lightbox JS
+                    const script = document.createElement('script');
+                    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js';
+                    script.integrity = 'sha512-JclVQ6W8fMHFMYd5G5VRwVXZRNu4KVQxJYhxcvyQPHNNVBQI1gYdeCg/rvGBDMEMpS7VCvS7qrx4wR0ZZE/wQA==';
+                    script.crossOrigin = 'anonymous';
+                    script.referrerPolicy = 'no-referrer';
+
+                    script.onload = () => {
+                        // Wait a bit untuk lightbox fully initialize
+                        setTimeout(() => {
+                            // Configure lightbox options setelah loaded
+                            if (typeof lightbox !== 'undefined') {
+                                lightbox.option({
+                                    resizeDuration: 200,
+                                    wrapAround: true,
+                                    fadeDuration: 300,
+                                    imageFadeDuration: 300,
+                                    showImageNumberLabel: true,
+                                    albumLabel: 'Foto %1 dari %2',
+                                    disableScrolling: true,
+                                });
+                            }
+                            resolve();
+                        }, 100);
+                    };
+
+                    script.onerror = () => reject(new Error('Failed to load Lightbox'));
+                    document.head.appendChild(script);
+                })
+                .catch(reject);
         });
     }
 
@@ -273,6 +304,9 @@
             const gallery = createGalleryHTML();
             mapContainer.parentNode.insertBefore(gallery, mapContainer.nextSibling);
 
+            // Setup event listeners untuk gallery items
+            setupGalleryEvents();
+
             // Trigger AOS animation jika AOS tersedia
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
@@ -280,6 +314,39 @@
         } else {
             console.warn('Map container tidak ditemukan, galeri tidak dapat ditambahkan');
         }
+    }
+
+    // Fungsi untuk setup event listeners
+    function setupGalleryEvents() {
+        // Wait a bit untuk DOM fully rendered
+        setTimeout(() => {
+            const galleryLinks = document.querySelectorAll('.gallery-item a[data-lightbox]');
+
+            galleryLinks.forEach((link) => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Check if lightbox is available
+                    if (typeof lightbox !== 'undefined') {
+                        // Use lightbox native method
+                        lightbox.start(this);
+                    } else {
+                        // Fallback: try to initialize lightbox first
+                        console.warn('Lightbox not ready, attempting to initialize...');
+                        setTimeout(() => {
+                            if (typeof lightbox !== 'undefined') {
+                                lightbox.start(this);
+                            } else {
+                                // Ultimate fallback - open in new window
+                                window.open(this.href, '_blank');
+                            }
+                        }, 500);
+                    }
+                });
+            });
+
+            console.log(`Gallery events setup untuk ${galleryLinks.length} gambar`);
+        }, 200);
     }
 
     // Fungsi untuk handle error loading gambar
@@ -323,14 +390,29 @@
             // Inject custom styles
             injectStyles();
 
+            console.log('Loading lightbox dependencies...');
+
             // Load lightbox dependencies
             await loadLightbox();
+
+            console.log('Lightbox loaded, inserting gallery...');
 
             // Insert gallery into DOM
             insertGallery();
 
             // Setup image error handling
-            setTimeout(handleImageErrors, 100);
+            setTimeout(() => {
+                handleImageErrors();
+
+                // Double check lightbox initialization
+                if (typeof lightbox !== 'undefined') {
+                    // Re-initialize lightbox untuk elemen baru
+                    lightbox.init();
+                    console.log('Lightbox re-initialized for gallery images');
+                } else {
+                    console.warn('Lightbox masih belum tersedia setelah loading');
+                }
+            }, 300);
 
             // Setup lazy loading if needed
             setupLazyLoading();
@@ -338,6 +420,11 @@
             console.log('Checkpoint gallery berhasil dimuat');
         } catch (error) {
             console.error('Error loading checkpoint gallery:', error);
+
+            // Fallback: insert gallery tanpa lightbox
+            console.log('Fallback: inserting gallery without lightbox...');
+            injectStyles();
+            insertGallery();
         }
     }
 
